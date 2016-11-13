@@ -5,7 +5,7 @@ from datetime import datetime as dt
 
 gmaps = gm.Client(key = "")
 
-#GET LOCATION
+###GET LOCATION###
 
 #userAddress = input("Please enter your current address: ")
 userAddress = "2201 West End Ave, Nashville, TN 37235"
@@ -22,6 +22,7 @@ search = userChoice + "food"
 userDistance = float(input("How far are you willing to drive? (miles): "))
 distance = userDistance * 1609.34   #converts meters to miles
 
+#JSON object - list of places
 restaurants = gmaps.places(search, location=loc, radius=distance, language="english")
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
@@ -45,6 +46,8 @@ else:
     choice = int(input("\nWhich restaurant would you like directions to? "))
 
 now = dt.now()
+
+###GET DIRECTIONS###
 
 directions = gmaps.directions(loc, restaurants['results'][choice]['formatted_address'], mode='driving',
                               departure_time=now)
