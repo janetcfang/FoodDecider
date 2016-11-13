@@ -3,7 +3,7 @@ import json
 import random
 from datetime import datetime as dt
 
-gmaps = gm.Client(key = "AIzaSyBByCmegtekUSBBXj-OG5AAuhc98GDDfhs")
+gmaps = gm.Client(key = "")
 
 #GET LOCATION
 
@@ -22,7 +22,7 @@ search = userChoice + "food"
 userDistance = float(input("How far are you willing to drive? (miles): "))
 distance = userDistance * 1609.34   #converts meters to miles
 
-restaurants = gmaps.places(search, location=loc, radius=userDistance, language="english")
+restaurants = gmaps.places(search, location=loc, radius=distance, language="english")
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
 for i in range(len(restaurants['results'])):
