@@ -2,7 +2,7 @@ import googlemaps as gm
 import json
 from datetime import datetime as dt
 
-gmaps = gm.Client(key = "AIzaSyBByCmegtekUSBBXj-OG5AAuhc98GDDfhs")
+gmaps = gm.Client(key = "")
 
 #user input
 #userLoc = raw_input("Please enter your current location: " )
