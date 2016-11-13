@@ -11,6 +11,4 @@ TODO:
 <ul>-Display route on map</ul>
 
 <br></br>
-Created at VandyHacks III by:
-@janetcfang
-@ftiet
+Created at VandyHacks III by: <a href="https://github.com/janetcfang" target="_blank">Janet Fang</a> and <a href="https://github.com/ftiet" target="_blank">Felix Tiet</a>
