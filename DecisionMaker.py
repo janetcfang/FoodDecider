@@ -15,7 +15,7 @@ restaurants = gmaps.places("restaurant", location=userAddress, radius=8050, lang
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
 for i in range(len(restaurants['results'])):
-    print('%d: %s - %s' % (i, restaurants['results'][i]['name'], ""))
+    print('%d: %s - %s' % (i, restaurants['results'][i]['name'], restaurants['results'][i]['rating']))
 
 choice = int(input("\nWhich restaurant would you like directions to? "))
 
