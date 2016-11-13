@@ -15,9 +15,9 @@ restaurants = gmaps.places("restaurant", location=userAddress, radius=8050, lang
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
 for i in range(len(restaurants['results'])):
-    print('%d: %s - %s' % (i, restaurants['results'][i]['name'], restaurants['results'][i]['formatted_address']))
+    print('%d: %s - %s' % (i, restaurants['results'][i]['name'], ""))
 
-choice = int(input("Which restaurant would you like directions to? "))
+choice = int(input("\nWhich restaurant would you like directions to? "))
 
 now = dt.now()
 
@@ -27,5 +27,12 @@ directions = gmaps.directions(userAddress, restaurants['results'][choice]['forma
 #print(json.dumps(directions, indent=2))
 
 for i in range(len(directions[0]['legs'][0]['steps'])):
-    print('%d: %s ' % (i+1, directions[0]['legs'][0]['steps'][i]['html_instructions']))
+    fix_string = directions[0]['legs'][0]['steps'][i]['html_instructions'].replace("<b>", "")
+    fix_string = fix_string.replace("</b>", "")
+
+    format = fix_string.find("<div")
+    if(format != -1):
+        fix_string = fix_string[:format]
+
+    print('Step %d: %s ' % (i+1, fix_string))
 
