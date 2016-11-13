@@ -26,7 +26,11 @@ restaurants = gmaps.places(search, location=loc, radius=distance, language="engl
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
 for i in range(len(restaurants['results'])):
-    print('%d: %s - Rating: %s' % (i, restaurants['results'][i]['name'], restaurants['results'][i]['rating']))
+    if "rating" in restaurants['results'][i]:
+		rate = restaurants['results'][i]['rating'] 
+	else:
+		rate = "N/A"
+	print('%d: %s - Rating: %s' % (i, restaurants['results'][i]['name'], rate))
 
 #random generation
 randQ = input("\nWould you like us to randomly generate a restaurant for you? Yes or No: ")
