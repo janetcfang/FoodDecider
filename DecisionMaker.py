@@ -7,8 +7,8 @@ gmaps = gm.Client(key = "")
 
 ###GET LOCATION###
 
-#userAddress = input("Please enter your current address: ")
-userAddress = "2201 West End Ave, Nashville, TN 37235"
+userAddress = input("Please enter your current address: ")
+#userAddress = "2201 West End Ave, Nashville, TN 37235"
 geoc = gmaps.geocode(address=userAddress)
 
 #latitude and longitude
