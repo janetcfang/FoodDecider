@@ -1,4 +1,4 @@
-# FoodDecider
+# Foodcider
 
 
 Unsure where to eat? Use this handy app to help you decide!
