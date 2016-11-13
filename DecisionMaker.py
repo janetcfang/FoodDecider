@@ -22,19 +22,17 @@ restaurants = gmaps.places(search, location=loc, radius=8050, language="english"
 
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
-for i in range(len(restaurants['results'])):
-    print('%d: %s - %s' % (i, restaurants['results'][i]['name'], restaurants['results'][i]['rating']))
-   
-randQ = raw_input("Would you like us to randomly generate a restaurant for you? Yes or No: ")
-if(randQ == "Yes"):
-	confirm = "No"
-	while(confirm != "Yes"):
-		rand = random.randrange(range(len(restaurants['results'])))
+randQ = raw_input("\nWould you like us to randomly generate a restaurant for you? Yes or No: ")
+if randQ == "Yes":
+	new = "Yes"
+	while(new != "No"):
+		rand = random.randrange(len(restaurants['results']))
 		print(restaurants['results'][rand]['name'])
-		confirm = raw_input("Would you like a different restaurant? Yes or No: ")
+		new = raw_input("\nWould you like a different restaurant? Yes or No: ")
 	choice = rand
 else:
 	choice = int(raw_input("\nWhich restaurant would you like directions to? "))
+
 
 now = dt.now()
 
