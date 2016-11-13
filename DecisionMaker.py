@@ -1,5 +1,6 @@
 import googlemaps as gm
 import json
+import random
 from datetime import datetime as dt
 
 gmaps = gm.Client(key = "")
@@ -23,8 +24,17 @@ restaurants = gmaps.places(search, location=loc, radius=8050, language="english"
 
 for i in range(len(restaurants['results'])):
     print('%d: %s - %s' % (i, restaurants['results'][i]['name'], restaurants['results'][i]['rating']))
-
-choice = int(input("\nWhich restaurant would you like directions to? "))
+   
+randQ = raw_input("Would you like us to randomly generate a restaurant for you? Yes or No: ")
+if(randQ == "Yes"):
+	confirm = "No"
+	while(confirm != "Yes"):
+		rand = random.randrange(range(len(restaurants['results'])))
+		print(restaurants['results'][rand]['name'])
+		confirm = raw_input("Would you like a different restaurant? Yes or No: ")
+	choice = rand
+else:
+	choice = int(raw_input("\nWhich restaurant would you like directions to? "))
 
 now = dt.now()
 
