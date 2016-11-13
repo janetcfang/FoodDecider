@@ -7,11 +7,17 @@ gmaps = gm.Client(key = "")
 #user input
 #userLoc = raw_input("Please enter your current location: " )
 #userAddress = input("Please enter your current address: ")
-userAddress = "36.1447034,-86.8048438"
+#userAddress = "36.1447034,-86.8048438"
+
+userAddress = "2201 West End Ave, Nashville, TN 37235"
+geoc = gmaps.geocode(address=userAddress)
+
+loc = str(geoc[0]['geometry']['location']['lat']) + "," + str(geoc[0]['geometry']['location']['lng'])
+#print(loc)
 
 userChoice = input("What kind of food are you craving? (leave blank if undecided): ")
 search = userChoice + "food"
-restaurants = gmaps.places(search, location=userAddress, radius=8050, language="english")
+restaurants = gmaps.places(search, location=loc, radius=8050, language="english")
 
 #print(json.dumps(restaurants, sort_keys=True, indent=2))
 
